@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <section className="fixed top-0 left-0 w-full z-50 md:bg-white/60 md:shadow-sm md:backdrop-blur-xl  ">
-      <header className="container mx-auto flex items-center bg-white/60 md:bg-transparent md:shadow-none md:backdrop-blur-none justify-between px-4 py-3">
+      <header className="container mx-auto flex items-center shadow-md backdrop-blur bg-white/65 md:bg-transparent md:shadow-none md:backdrop-blur-none justify-between px-4 py-3">
         <Link to="/" className="font-extrabold text-2xl md:text-3xl tracking-tight text-sky-800">
           SIP.
         </Link>
