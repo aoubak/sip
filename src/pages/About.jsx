@@ -52,53 +52,54 @@ export default function About() {
       </section>
 
       {/* Introduction */}
-      <section className="relative bg-gradient-to-b from-white to-sky-50/40 py-14">
+      <section className="relative bg-gradient-to-b from-white to-sky-50/40 py-8 sm:py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur">
                 Who we are
               </div>
-              <p className="mt-4 text-slate-700 leading-relaxed">
+              <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
                 Somali Insight Consultancy (SIP) is a multi-disciplinary consulting firm established in 2015 with the primary focus of building safer and sustainable communities by providing sound, practical solutions in:
               </p>
-              <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700">
                 {introPoints.map((item) => (
-                  <li key={item} className="inline-flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-600" />
-                    <span className="text-sm">{item}</span>
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-600 shrink-0" />
+                    <span className="text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-slate-700 leading-relaxed">
+              <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
                 SIP has earned a strong reputation as a trusted provider of sustainable environmental and disaster management solutions in Somalia, working alongside government institutions, development agencies, NGOs, and the private sector.
               </p>
             </div>
 
-            <div className="relative">
+            <div className="relative order-first lg:order-last">
               <div className="pointer-events-none absolute -top-6 -right-6 h-40 w-40 rounded-full bg-sky-200/40 blur-2xl" />
-              <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 sm:col-span-1">
-                  <div className="aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-slate-200/60">
-                    <img className="h-full w-full object-cover" src={images.heroImg} alt="Field work" />
-                  </div>
-                </div>
-                <div className="hidden sm:block">
-                  <div className="aspect-[5/4] overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200/60">
-                    <img className="h-full w-full object-cover" src={images.heroImg} alt="Community consultation" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-4 left-4 right-auto">
-                <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-lg backdrop-blur">
-                  <h3 className="text-sm font-semibold text-slate-900">At a glance</h3>
-                  <ul className="mt-2 space-y-2 text-xs text-slate-700">
-                    <li className="flex items-center gap-2"><Leaf className="h-4 w-4 text-sky-700" /> Established 2015</li>
-                    <li className="flex items-center gap-2"><Users className="h-4 w-4 text-sky-700" /> Multidisciplinary experts</li>
-                    <li className="flex items-center gap-2"><Map className="h-4 w-4 text-sky-700" /> Nationwide operations</li>
-                  </ul>
-                </div>
+              
+              <div className="relative bg-white/90 backdrop-blur rounded-2xl border border-slate-200 p-6 shadow-lg">
+                <h3 className="text-base font-semibold text-slate-900 mb-4">At a glance</h3>
+                <ul className="space-y-3 text-sm text-slate-700">
+                  <li className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                      <Leaf className="h-4 w-4" />
+                    </div>
+                    <span>Established 2015</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                      <Users className="h-4 w-4" />
+                    </div>
+                    <span>Multidisciplinary experts</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                      <Map className="h-4 w-4" />
+                    </div>
+                    <span>Nationwide operations</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
