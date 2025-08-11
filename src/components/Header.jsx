@@ -9,7 +9,7 @@ export default function Header() {
   const navItems = [
     { label: 'Home', type: 'route', to: '/' },
     { label: 'About', type: 'route', to: '/about' },
-    { label: 'Services', type: 'hash', href: '#services' },
+    { label: 'Services', type: 'route', to: '/services' },
     { label: 'Projects', type: 'hash', href: '#projects' },
     { label: 'Team', type: 'hash', href: '#team' },
     { label: 'Resources', type: 'hash', href: '#resources' },
