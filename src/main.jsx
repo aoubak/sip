@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   }
   
 ],
-{  basename: '/SIP', }
+{  basename: '/', }
 )
 
 createRoot(document.getElementById('root')).render(
