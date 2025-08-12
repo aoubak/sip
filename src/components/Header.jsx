@@ -11,7 +11,7 @@ export default function Header() {
     { label: 'About', type: 'route', to: '/about' },
     { label: 'Services', type: 'route', to: '/services' },
     { label: 'Projects', type: 'route', to: '/projects' },
-    { label: 'Teams', type: 'route', to: '/teams' },
+    { label: 'Team', type: 'route', to: '/team' },
     { label: 'Resources', type: 'route', to: '/resources' },
     { label: 'Contact', type: 'route', to: '/contact' },
   ]
