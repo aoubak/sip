@@ -7,6 +7,7 @@ import AboutPreview from './components/AboutPreview';
 import ServicesPreview from './components/ServicesPreview';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Outlet />
       <Footer />
+      <ScrollToTopButton />
       
     </>
   )

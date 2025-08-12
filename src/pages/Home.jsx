@@ -4,7 +4,6 @@ import CoreValues from '../components/CoreValues';
 import AboutPreview from '../components/AboutPreview';
 import ServicesPreview from '../components/ServicesPreview';
 import ProjectsPreview from '../components/ProjectsPreview';
-import Team from '../components/Team';
 import ContactCTA from '../components/ContactCTA';
 
 
@@ -16,7 +15,6 @@ export default function Home() {
       <AboutPreview />
       <ServicesPreview />
       <ProjectsPreview />
-      <Team />
       <ContactCTA />
     </section>
   )

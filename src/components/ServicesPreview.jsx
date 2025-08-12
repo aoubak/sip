@@ -1,7 +1,7 @@
 // Services.jsx (page)
 import ServiceCard from "../components/ServiceCard";
-import { images } from "../assets/images";
-import { Users, Snowflake, Sprout, MoveUpRight } from "lucide-react"; 
+import { Link } from "react-router-dom";
+import { Users, Snowflake, Sprout, MoveUpRight, HeartPlus, BadgePercent, Activity } from "lucide-react"; 
 
 
 
@@ -29,6 +29,26 @@ const servicesData  = [
         title: "Community Consultation",
         description: "Engage stakeholders for inclusive and transparent project planning.",
         icon: Users
+      },
+      {
+        title: "Social & Resettlement Studies",
+        description: "Assessing impacts of land use and resource changes on local communities.",
+        icon: HeartPlus
+      }
+    ]
+  },
+   {
+    category: "Research & Development",
+    services: [
+      {
+        title: "Socio-Economic Studies",
+        description: "Baseline surveys, impact evaluations, and livelihood security assessments.",
+        icon: BadgePercent
+      },
+      {
+        title: "Monitoring & Evaluation (M&E)",
+        description: "Designing and implementing frameworks for project performance tracking.",
+        icon: Activity 
       }
     ]
   }
@@ -61,13 +81,13 @@ export default function ServicesPreview() {
         ))}
 
         <div className="flex justify-center mt-12">
-          <a
-            href="#contact"
+          <Link
+            to="/services"
             className="inline-flex items-center gap-2 border border-white/80 text-white px-6 py-3 rounded-md hover:bg-white hover:text-sky-900 transition duration-200"
           >
-            View More
+            View more
             <MoveUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

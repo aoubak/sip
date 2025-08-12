@@ -10,10 +10,10 @@ export default function Header() {
     { label: 'Home', type: 'route', to: '/' },
     { label: 'About', type: 'route', to: '/about' },
     { label: 'Services', type: 'route', to: '/services' },
-    { label: 'Projects', type: 'hash', href: '#projects' },
-    { label: 'Team', type: 'hash', href: '#team' },
-    { label: 'Resources', type: 'hash', href: '#resources' },
-    { label: 'Contact', type: 'hash', href: '#contact' },
+    { label: 'Projects', type: 'route', to: '/projects' },
+    { label: 'Teams', type: 'route', to: '/teams' },
+    { label: 'Resources', type: 'route', to: '/resources' },
+    { label: 'Contact', type: 'route', to: '/contact' },
   ]
 
   const closeMenu = () => setIsOpen(false)
@@ -55,6 +55,7 @@ export default function Header() {
                 )}
               </li>
             ))}
+
           </ul>
         </nav>
 

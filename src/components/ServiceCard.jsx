@@ -1,4 +1,5 @@
 import { MoveUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // ServiceCard.jsx (component)
 export default function ServiceCard({ icon, title, description }) {
@@ -18,12 +19,12 @@ export default function ServiceCard({ icon, title, description }) {
       </div>
 
       <div className="ml-3 shrink-0">
-        <button
+        <Link to="/services" 
           aria-label={`Learn more about ${title}`}
           className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-slate-200 text-slate-700 hover:text-white hover:bg-sky-600 hover:border-sky-600 transition-colors duration-200"
         >
           <MoveUpRight className="h-4 w-4" />
-        </button>
+        </Link>
       </div>
 
       <div className="pointer-events-none absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-sky-100 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
