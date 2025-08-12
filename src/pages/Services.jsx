@@ -110,7 +110,7 @@ export default function Services() {
         <div className="pointer-events-none absolute -bottom-24 right-24 h-[28rem] w-[28rem] rounded-full bg-indigo-200/30 blur-3xl" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className="container mx-auto text-left mb-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
               Our Expertise
@@ -121,6 +121,11 @@ export default function Services() {
             <p className="text-slate-700 leading-relaxed text-lg sm:text-xl mb-4">
               At SIP Consultancy, we provide high-quality consultancy services designed to create sustainable, inclusive, and impactful development outcomes.
             </p>
+            <div>
+            <p className="text-slate-600 text-left  leading-relaxed text-base sm:text-lg">
+              Our multidisciplinary team delivers technical expertise across environmental, social, economic, and governance sectors in Somalia and the wider region.
+            </p>
+          </div>
             
           </div>
 
@@ -165,11 +170,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-          <div>
-            <p className="text-slate-600 text-center mt-10 leading-relaxed text-base sm:text-lg">
-              Our multidisciplinary team delivers technical expertise across environmental, social, economic, and governance sectors in Somalia and the wider region.
-            </p>
-          </div>
+          
         </div>
       </section>
 
