@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { images } from '../assets/images'
 import { Target, Globe2, ShieldCheck, Users, Cpu, Map, BarChart3, CheckCircle2, Leaf } from 'lucide-react'
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 export default function About() {
- 
+   const { isDarkMode } = useDarkMode();
+
   const introPoints = [
     'Environmental Management',
     'Resettlement Action Plans',
@@ -52,17 +54,25 @@ export default function About() {
       </section>
 
       {/* Introduction */}
-      <section className="relative bg-gradient-to-b from-white to-sky-50/40 py-8 sm:py-14">
+      <section className={`relative py-8 sm:py-14
+        ${
+          isDarkMode ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white' 
+          : 'bg-gradient-to-b from-white to-sky-50/40 text-slate-900'
+        }
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur">
+              <div className={`inline-flex items-center gap-2 rounded-full border border-sky-200 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur
+                ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700' 
+                  : 'bg-white/70 text-sky-800 border-sky-200'}
+              `}>
                 Who we are
               </div>
-              <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
+              <p className="leading-relaxed text-sm sm:text-base">
                 Somali Insight Consultancy (SIP) is a multi-disciplinary consulting firm established in 2015 with the primary focus of building safer and sustainable communities by providing sound, practical solutions in:
               </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                 {introPoints.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-600 shrink-0" />
@@ -70,31 +80,45 @@ export default function About() {
                   </li>
                 ))}
               </ul>
-              <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
+              <p className="leading-relaxed text-sm sm:text-base">
                 SIP has earned a strong reputation as a trusted provider of sustainable environmental and disaster management solutions in Somalia, working alongside government institutions, development agencies, NGOs, and the private sector.
               </p>
             </div>
 
             <div className="relative order-first lg:order-last">
-              <div className="pointer-events-none absolute -top-6 -right-6 h-40 w-40 rounded-full bg-sky-200/40 blur-2xl" />
+              <div className={`pointer-events-none absolute -top-6 -right-6 h-40 w-40 rounded-full blur-2xl
+                ${isDarkMode ? 'bg-sky-500/10' : 'bg-sky-200/40'}
+              `} />
               
-              <div className="relative bg-white/90 backdrop-blur rounded-2xl border border-slate-200 p-6 shadow-lg">
-                <h3 className="text-base font-semibold text-slate-900 mb-4">At a glance</h3>
-                <ul className="space-y-3 text-sm text-slate-700">
+              <div className={`relative backdrop-blur rounded-2xl border p-6 shadow-lg
+                ${isDarkMode ? 'bg-slate-800/90 text-slate-200 border-slate-700'
+                : 'bg-white/90 text-slate-900 border-slate-200'}
+              `}>
+                <h3 className="text-base font-semibold mb-4">At a glance</h3>
+                <ul className="space-y-3 text-sm">
                   <li className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-lg ring-1
+                      ${isDarkMode ? 'bg-sky-900/30 text-sky-300 ring-sky-700'
+                      : 'bg-sky-50 text-sky-700 ring-sky-200'}
+                    `}>
                       <Leaf className="h-4 w-4" />
                     </div>
                     <span>Established 2015</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-lg ring-1
+                      ${isDarkMode ? 'bg-sky-900/30 text-sky-300 ring-sky-700'
+                      : 'bg-sky-50 text-sky-700 ring-sky-200'}
+                    `}>
                       <Users className="h-4 w-4" />
                     </div>
                     <span>Multidisciplinary experts</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-200">
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-lg ring-1
+                      ${isDarkMode ? 'bg-sky-900/30 text-sky-300 ring-sky-700'
+                      : 'bg-sky-50 text-sky-700 ring-sky-200'}
+                    `}>
                       <Map className="h-4 w-4" />
                     </div>
                     <span>Nationwide operations</span>
@@ -107,34 +131,47 @@ export default function About() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="relative bg-white py-14">
+      <section className={`relative bg-white py-14
+        ${isDarkMode ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white'
+        : 'bg-gradient-to-b from-white to-sky-50/40 text-slate-900'
+        }
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className={`rounded-2xl border p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white/70 text-slate-900 border-slate-200'}}
+              `}>
               <div className="flex items-center gap-3">
                 <Globe2 className="h-6 w-6 text-sky-700" />
-                <h3 className="text-lg font-semibold text-slate-900">Vision</h3>
+                <h3 className="text-lg font-semibold ">Vision</h3>
               </div>
-              <p className="mt-2 text-slate-700 text-sm leading-relaxed">
+              <p className="mt-2 text-sm leading-relaxed">
                 To be a leading high-level institutional consultancy firm in agricultural development, environmental science, and environmental & social compliance monitoring.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className={`rounded-2xl border p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white text-slate-900 border-slate-200'}}
+              `}>
               <div className="flex items-center gap-3">
                 <Target className="h-6 w-6 text-sky-700" />
-                <h3 className="text-lg font-semibold text-slate-900">Mission</h3>
+                <h3 className="text-lg font-semibold">Mission</h3>
               </div>
-              <p className="mt-2 text-slate-700 text-sm leading-relaxed">
+              <p className="mt-2 text-sm leading-relaxed">
                 To offer high-quality, cutting-edge consultancy services in environmental management and agriculture.
               </p>
             </div>
           </div>
 
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-slate-900">Core Values</h4>
+            <h4 className="text-sm font-semibold">Core Values</h4>
             <div className="mt-3 flex flex-wrap gap-2">
               {['Integrity','Professionalism','Teamwork','Adaptability','Gender Equity','Patriotism'].map((v) => (
-                <span key={v} className="inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-200">
+                <span key={v} className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1
+                  ${isDarkMode ? 'bg-slate-700/70 text-slate-300 ring-slate-600'
+                  : 'bg-sky-50 text-sky-700 ring-sky-200'}
+                `}>
                   {v}
                 </span>
               ))}
@@ -144,40 +181,61 @@ export default function About() {
       </section>
 
       {/* Our Approach */}
-      <section className="relative bg-gradient-to-b from-white to-sky-50/50 py-14">
+      <section className={`relative py-14
+        ${isDarkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 text-white'
+        : 'bg-gradient-to-b from-white to-sky-50/50 text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur">
+          <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium shadow-sm backdrop-blur
+            ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+            : 'bg-white/70 text-sky-800 border-sky-200'}
+          `}>
             Our Approach
           </div>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3"><Users className="h-5 w-5 text-sky-700" /><h5 className="font-semibold text-slate-900">Tailored Expert Teams</h5></div>
-              <p className="mt-2 text-sm text-slate-700 leading-relaxed">We assemble expert teams for each project to ensure technical excellence, professionalism, and client-focused delivery.</p>
+            <div className={`rounded-2xl border p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white text-slate-900 border-slate-200'}
+              `}>
+              <div className="flex items-center gap-3"><Users className="h-5 w-5 text-sky-700" /><h5 className="font-semibold">Tailored Expert Teams</h5></div>
+              <p className="mt-2 text-sm leading-relaxed">We assemble expert teams for each project to ensure technical excellence, professionalism, and client-focused delivery.</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3"><Cpu className="h-5 w-5 text-sky-700" /><h5 className="font-semibold text-slate-900">Advanced Tooling</h5></div>
-              <p className="mt-2 text-sm text-slate-700 leading-relaxed">We combine local knowledge with GIS, remote sensing, and statistical analysis to produce accurate, actionable results.</p>
+            <div className={`rounded-2xl border p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white text-slate-900 border-slate-200'}
+              `}>
+              <div className="flex items-center gap-3"><Cpu className="h-5 w-5 text-sky-700" /><h5 className="font-semibold">Advanced Tooling</h5></div>
+              <p className="mt-2 text-sm leading-relaxed">We combine local knowledge with GIS, remote sensing, and statistical analysis to produce accurate, actionable results.</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-sky-700" /><h5 className="font-semibold text-slate-900">Sustainable, On-time Delivery</h5></div>
-              <p className="mt-2 text-sm text-slate-700 leading-relaxed">We emphasize stakeholder engagement, sustainability, and delivery within time and budget constraints.</p>
+            <div className={`rounded-2xl border p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white text-slate-900 border-slate-200'}
+              `}>
+              <div className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-sky-700" /><h5 className="font-semibold">Sustainable, On-time Delivery</h5></div>
+              <p className="mt-2 text-sm leading-relaxed">We emphasize stakeholder engagement, sustainability, and delivery within time and budget constraints.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Capabilities */}
-      <section className="relative bg-white py-14">
+      <section className={`relative py-14
+        ${isDarkMode ? 'bg-slate-900 text-white'
+        : 'bg-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end flex-wrap gap-3">
-            <h3 className="text-2xl font-bold text-slate-900">Our Capabilities</h3>
+            <h3 className="text-2xl font-bold">Our Capabilities</h3>
           </div>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {capabilities.map((cap) => (
-              <div key={cap} className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-lg transition">
+              <div key={cap} className={`group rounded-xl border p-5 shadow-sm hover:shadow-lg transition
+                ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700 hover:bg-slate-800'
+                : 'bg-white text-slate-800 border-slate-200'}
+              `}>
                 <div className="flex items-start gap-3">
                   <BarChart3 className="h-5 w-5 text-sky-700" />
-                  <p className="text-sm text-slate-800 leading-relaxed">{cap}</p>
+                  <p className="text-sm leading-relaxed">{cap}</p>
                 </div>
               </div>
             ))}
@@ -186,12 +244,15 @@ export default function About() {
       </section>
 
       {/* Why Work With SIP */}
-      <section className="relative bg-gradient-to-b from-white to-sky-50/50 py-14">
+      <section className={`relative py-14
+        ${isDarkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 text-white'
+        : 'bg-gradient-to-b from-white to-sky-50/50 text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl font-bold text-slate-900">Why Work With SIP</h3>
+          <h3 className="text-2xl font-bold">Why Work With SIP</h3>
           <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {reasons.map((r) => (
-              <li key={r} className="inline-flex items-start gap-2 text-slate-700">
+              <li key={r} className="inline-flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 text-sky-700" />
                 <span className="text-sm leading-relaxed">{r}</span>
               </li>
@@ -201,9 +262,12 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="relative bg-white py-14">
+      <section className={`relative py-14
+        ${isDarkMode ? 'bg-slate-900 text-white'
+        : 'bg-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Partner with SIP Consultancy for sustainable and impactful development solutions.</h3>
+          <h3 className="text-2xl md:text-3xl font-bold">Partner with SIP Consultancy for sustainable and impactful development solutions.</h3>
           <div className="mt-6">
             <Link
               to="/#contact"

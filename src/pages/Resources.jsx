@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FileText, BookOpen, Wrench, ArrowRight, Download } from 'lucide-react'
+import { useDarkMode } from '../contexts/DarkModeContext'
 
 export default function Resources() {
+  const { isDarkMode } = useDarkMode();
   const resourceCategories = [
     {
       title: 'Policy & Governance Documents',
@@ -78,16 +80,23 @@ export default function Resources() {
   return (
     <section className="pt-20">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-sky-50 to-indigo-50 py-20 overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-sky-200/40 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-indigo-200/40 blur-3xl" />
+      <div className={`relative py-20 overflow-hidden
+        ${isDarkMode ? 'bg-gradient-to-br from-slate-900 to-slate-800 text-white'
+        : 'bg-gradient-to-br from-sky-50 to-indigo-50 text-slate-900'}
+      `}>
+        <div className={`pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl
+          ${isDarkMode ? 'bg-sky-500/10' : 'bg-sky-200/40'}
+        `} />
+        <div className={`pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full blur-3xl
+          ${isDarkMode ? 'bg-indigo-500/10' : 'bg-indigo-200/40'}
+        `} />
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Resources & Publications
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-xl leading-relaxed">
               Reports, policies, and tools that reflect our commitment to sustainable development.
             </p>
           </div>
@@ -95,10 +104,13 @@ export default function Resources() {
       </div>
 
       {/* Intro Section */}
-      <div className="py-16 bg-white">
+      <div className={`py-16
+        ${isDarkMode ? 'bg-slate-900 text-white'
+        : 'bg-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-lg leading-relaxed">
               SIP Consultancy believes in transparency and knowledge-sharing. 
               We make available selected documents, publications, and policies to support stakeholders, 
               partners, and the public in advancing sustainable development and environmental management in Somalia.
@@ -108,31 +120,46 @@ export default function Resources() {
       </div>
 
       {/* Resource Categories */}
-      <div className="py-16 bg-slate-50">
+      <div className={`py-16
+        ${isDarkMode ? 'bg-slate-800 text-white'
+        : 'bg-slate-50 text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {resourceCategories.map((category, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-lg transition-shadow">
+              <div key={index} className={`rounded-2xl p-8 shadow-sm border hover:shadow-lg transition-shadow
+                ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700 hover:bg-slate-800'
+                : 'bg-white text-slate-900 border-slate-200'}
+              `}>
                 <div className="flex items-center gap-4 mb-6">
                   {category.icon}
-                  <h3 className="text-xl font-bold text-slate-900">{category.title}</h3>
+                  <h3 className="text-xl font-bold">{category.title}</h3>
                 </div>
-                <p className="text-slate-600 mb-6">{category.description}</p>
+                <p className="mb-6">{category.description}</p>
                 
                 <div className="space-y-4">
                   {category.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="border border-slate-200 rounded-lg p-4 hover:border-sky-300 transition-colors">
+                    <div key={itemIndex} className={`border rounded-lg p-4 hover:border-sky-300 transition-colors
+                      ${isDarkMode ? 'border-slate-700 hover:border-sky-400' : 'border-slate-200'}
+                    `}>
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex-1">
-                          <h4 className="font-semibold text-slate-900 mb-2">{item.name}</h4>
-                          <p className="text-sm text-slate-600 mb-3">{item.description}</p>
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
+                          <h4 className="font-semibold mb-2">{item.name}</h4>
+                          <p className="text-sm mb-3">{item.description}</p>
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                            ${isDarkMode ? 'bg-sky-900/50 text-sky-300' : 'bg-sky-100 text-sky-800'}
+                          `}>
                             {item.type}
                           </span>
                         </div>
                         <a
                           href={item.link}
-                          className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-slate-200 text-slate-600 hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-colors"
+                          className={`inline-flex items-center justify-center w-10 h-10 rounded-full border transition-colors
+                            ${isDarkMode 
+                              ? 'border-slate-600 text-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600'
+                              : 'border-slate-200 text-slate-600 hover:bg-sky-600 hover:text-white hover:border-sky-600'
+                            }
+                          `}
                           aria-label={`Download ${item.name}`}
                         >
                           <Download className="h-4 w-4" />
@@ -148,13 +175,16 @@ export default function Resources() {
       </div>
 
       {/* Call to Action */}
-      <div className="py-20 bg-white">
+      <div className={`py-20
+        ${isDarkMode ? 'bg-slate-900 text-white'
+        : 'bg-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               Looking for a specific report or template?
             </h2>
-            <p className="text-lg text-slate-600 mb-8">
+            <p className="text-lg mb-8">
               Contact us to request more information about our resources and publications.
             </p>
             <Link

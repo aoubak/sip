@@ -1,7 +1,8 @@
 // Services.jsx (page)
 import ServiceCard from "../components/ServiceCard";
 import { Link } from "react-router-dom";
-import { Users, Snowflake, Sprout, MoveUpRight, HeartPlus, BadgePercent, Activity } from "lucide-react"; 
+import { Users, Snowflake, Sprout, MoveUpRight, HeartPlus, BadgePercent, Activity } from "lucide-react";
+import { useDarkMode } from "../contexts/DarkModeContext"; 
 
 
 
@@ -55,8 +56,14 @@ const servicesData  = [
 ];
 
 export default function ServicesPreview() {
+  const { isDarkMode } = useDarkMode();
+  
   return (
-    <section id="services" className="relative bg-sky-800 text-white overflow-hidden">
+    <section id="services" className={`relative transition-all duration-300 overflow-hidden ${
+      isDarkMode 
+        ? 'bg-slate-800 text-white' 
+        : 'bg-sky-800 text-white'
+    }`}>
       <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-indigo-400/20 blur-3xl" />
 

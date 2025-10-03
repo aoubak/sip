@@ -1,7 +1,9 @@
 import React from 'react'
 import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react'
+import { useDarkMode } from '../contexts/DarkModeContext'
 
 export default function Footer() {
+  const { isDarkMode } = useDarkMode()
   const year = new Date().getFullYear()
 
   const quickLinks = [
@@ -13,7 +15,11 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-slate-900 text-slate-200">
+    <footer className={`relative border-t border-slate-700 transition-all duration-300 ${
+      isDarkMode 
+        ? 'bg-slate-900 text-slate-200' 
+        : 'bg-slate-800 text-slate-200'
+    }`}>
       <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 
       <div className="container mx-auto px-4 py-14">

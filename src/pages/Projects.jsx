@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { images } from '../assets/images'
 import { Building2, Calendar, BriefcaseBusiness, DollarSign, ArrowRight } from 'lucide-react'
+import { useDarkMode } from '../contexts/DarkModeContext'
 
 export default function Projects() {
+  const { isDarkMode } = useDarkMode();
   const projects = [
     {
       title: 'Environmental & Social Risk Monitoring – Garowe Municipality (SURPII)',
@@ -80,16 +82,22 @@ export default function Projects() {
       </section>
 
       {/* Intro */}
-      <section className="relative bg-gradient-to-b from-white to-sky-50/40 py-12 sm:py-16">
+      <section className={`relative py-12 sm:py-16
+        ${isDarkMode ? 'bg-gradient-to-b from-slate-900 to-slate-800 text-white'
+        : 'bg-gradient-to-b from-white to-sky-50/40 text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur mb-6">
+            <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium shadow-sm backdrop-blur mb-6
+              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              : 'bg-white/70 text-sky-800 border-sky-200'}
+            `}>
               Since 2015
             </div>
-            <p className="text-slate-700 leading-relaxed text-lg sm:text-xl">
+            <p className="leading-relaxed text-lg sm:text-xl">
               Since 2015, SIP Consultancy has delivered over 40 high-quality projects for governments, NGOs, UN agencies, and development partners.
             </p>
-            <p className="mt-4 text-slate-600 leading-relaxed text-base sm:text-lg">
+            <p className="mt-4 leading-relaxed text-base sm:text-lg">
               Our projects span environmental management, social development, policy formulation, disaster risk reduction, and capacity building. Below is a selection of our most notable assignments.
             </p>
           </div>
@@ -97,48 +105,59 @@ export default function Projects() {
       </section>
 
       {/* Featured Projects */}
-      <section className="relative bg-white py-12 sm:py-16">
+      <section className={`relative py-12 sm:py-16
+        ${isDarkMode ? 'bg-slate-900 text-white'
+        : 'bg-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((p) => (
               <article
                 key={p.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-0.5 flex flex-col h-full"
+                className={`group rounded-2xl border p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-0.5 flex flex-col h-full
+                  ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700 hover:bg-slate-800'
+                  : 'bg-white text-slate-900 border-slate-200'}
+                `}
               >
                 <div className='mb-3'>
                     {/* image of project */}
                     <img src={images.heroImg} alt={p.title} className="w-full h-40 object-cover rounded-lg" />
                 </div>
-                <h3 className="text-base font-semibold text-slate-900">{p.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{p.description}</p>
+                <h3 className="text-base font-semibold">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed">{p.description}</p>
 
-                <dl className="mt-4 space-y-2 text-sm text-slate-700">
+                <dl className="mt-4 space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <Building2 className="h-4 w-4 text-sky-700" />
-                    <dt className="font-medium text-slate-900">Client:</dt>
-                    <dd className="ml-1 text-slate-700">{p.client}</dd>
+                    <dt className="font-medium">Client:</dt>
+                    <dd className="ml-1">{p.client}</dd>
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4 text-sky-700" />
-                    <dt className="font-medium text-slate-900">Duration:</dt>
-                    <dd className="ml-1 text-slate-700">{p.duration}</dd>
+                    <dt className="font-medium">Duration:</dt>
+                    <dd className="ml-1">{p.duration}</dd>
                   </div>
                   <div className="flex items-center gap-2">
                     <BriefcaseBusiness className="h-4 w-4 text-sky-700" />
-                    <dt className="font-medium text-slate-900">Role:</dt>
-                    <dd className="ml-1 text-slate-700">{p.role}</dd>
+                    <dt className="font-medium">Role:</dt>
+                    <dd className="ml-1">{p.role}</dd>
                   </div>
                   <div className="flex items-center gap-2">
                     <DollarSign className="h-4 w-4 text-sky-700" />
-                    <dt className="font-medium text-slate-900">Value:</dt>
-                    <dd className="ml-1 text-slate-700">{p.value}</dd>
+                    <dt className="font-medium">Value:</dt>
+                    <dd className="ml-1">{p.value}</dd>
                   </div>
                 </dl>
 
                 <div className="mt-auto pt-5">
                   <Link
                     to="/#contact"
-                    className="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-sky-600 hover:text-white hover:border-sky-600 transition"
+                    className={`inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-semibold transition
+                      ${isDarkMode 
+                        ? 'border-slate-600 bg-slate-700 text-slate-300 hover:bg-sky-600 hover:text-white hover:border-sky-600'
+                        : 'border-slate-300 bg-white text-slate-700 hover:bg-sky-600 hover:text-white hover:border-sky-600'
+                      }
+                    `}
                     aria-label={`Contact us about ${p.title}`}
                   >
                     Contact about this project
@@ -152,10 +171,13 @@ export default function Projects() {
       </section>
 
       {/* CTA */}
-      <section className="relative bg-gradient-to-b from-sky-50 to-white py-12 sm:py-16">
+      <section className={`relative py-12 sm:py-16
+        ${isDarkMode ? 'bg-gradient-to-b from-slate-800 to-slate-900 text-white'
+        : 'bg-gradient-to-b from-sky-50 to-white text-slate-900'}
+      `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
               Partner with us to achieve measurable and sustainable development impact.
             </h2>
             <Link

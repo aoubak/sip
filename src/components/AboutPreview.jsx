@@ -1,10 +1,16 @@
 import React from "react";
 import { images } from "../assets/images";
 import { Goal, Telescope } from "lucide-react";
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 export default function AboutPreview() {
+  const { isDarkMode } = useDarkMode();
   return (
-    <section id="about" className="relative bg-gradient-to-b from-white to-sky-50/40 py-16">
+    <section id="about" className={`relative transition-all duration-300 py-16 ${
+      isDarkMode 
+        ? 'bg-gradient-to-b from-slate-900 to-slate-800' 
+        : 'bg-gradient-to-b from-white to-sky-50/40'
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           <div className="relative">
@@ -15,37 +21,69 @@ export default function AboutPreview() {
           </div>
 
           <div className="md:w-full">
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs font-medium text-sky-800 shadow-sm backdrop-blur">
+            <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium shadow-sm backdrop-blur transition-all duration-300 ${
+              isDarkMode 
+                ? 'border-slate-600 bg-slate-800/70 text-slate-300' 
+                : 'border-sky-200 bg-white/70 text-sky-800'
+            }`}>
               About Us
             </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-3">
-              <span className="bg-sky-100 border text-[12px] border-sky-300 text-sky-900 rounded-full px-3 py-1">
+              <span className={`border text-[12px] rounded-full px-3 py-1 transition-all duration-300 ${
+                isDarkMode 
+                  ? 'bg-slate-700 border-slate-600 text-slate-300' 
+                  : 'bg-sky-100 border-sky-300 text-sky-900'
+              }`}>
                 Somali Insight Consultancy (SIP)
               </span>
-              <span className="text-[12px] text-slate-600">
-                Founded: <span className="font-bold text-sky-700">2015</span>
+              <span className={`text-[12px] transition-colors duration-300 ${
+                isDarkMode ? 'text-slate-300' : 'text-slate-600'
+              }`}>
+                Founded: <span className={`font-bold transition-colors duration-300 ${
+                  isDarkMode ? 'text-sky-400' : 'text-sky-700'
+                }`}>2015</span>
               </span>
             </div>
 
-            <hr className="my-5 border-sky-200/70" />
+            <hr className={`my-5 transition-colors duration-300 ${
+              isDarkMode ? 'border-slate-600' : 'border-sky-200/70'
+            }`} />
 
-            <div className="mt-4 mb-4 bg-sky-700/5 p-4 rounded-xl ring-1 ring-sky-100">
-              <span className="text-sm text-sky-700 font-bold">Focus</span>
-              <p className="mt-1 text-sm text-neutral-700 leading-relaxed">
+            <div className={`mt-4 mb-4 p-4 rounded-xl ring-1 transition-all duration-300 ${
+              isDarkMode 
+                ? 'bg-slate-800/50 ring-slate-600' 
+                : 'bg-sky-700/5 ring-sky-100'
+            }`}>
+              <span className={`text-sm font-bold transition-colors duration-300 ${
+                isDarkMode ? 'text-sky-400' : 'text-sky-700'
+              }`}>Focus</span>
+              <p className={`mt-1 text-sm leading-relaxed transition-colors duration-300 ${
+                isDarkMode ? 'text-slate-300' : 'text-neutral-700'
+              }`}>
                 Building safer and sustainable communities through environmental
                 management, disaster risk reduction, social development, and
                 research.
               </p>
             </div>
 
-            <div className="mt-4 mb-4 flex items-start gap-4 bg-sky-700/5 p-4 rounded-xl ring-1 ring-sky-100">
+            <div className={`mt-4 mb-4 flex items-start gap-4 p-4 rounded-xl ring-1 transition-all duration-300 ${
+              isDarkMode 
+                ? 'bg-slate-800/50 ring-slate-600' 
+                : 'bg-sky-700/5 ring-sky-100'
+            }`}>
               <div className="shrink-0">
-                <Goal size={55} className="text-sky-900" />
+                <Goal size={55} className={`transition-colors duration-300 ${
+                  isDarkMode ? 'text-sky-400' : 'text-sky-900'
+                }`} />
               </div>
               <div>
-                <span className="text-sm text-sky-700 font-bold">Mission</span>
-                <p className="mt-1 text-sm text-neutral-700 leading-relaxed">
+                <span className={`text-sm font-bold transition-colors duration-300 ${
+                  isDarkMode ? 'text-sky-400' : 'text-sky-700'
+                }`}>Mission</span>
+                <p className={`mt-1 text-sm leading-relaxed transition-colors duration-300 ${
+                  isDarkMode ? 'text-slate-300' : 'text-neutral-700'
+                }`}>
                   Building safer and sustainable communities through
                   environmental management, disaster risk reduction, social
                   development, and research.
@@ -53,13 +91,23 @@ export default function AboutPreview() {
               </div>
             </div>
 
-            <div className="mt-4 mb-4 flex items-start gap-4 bg-sky-700/5 p-4 rounded-xl ring-1 ring-sky-100">
+            <div className={`mt-4 mb-4 flex items-start gap-4 p-4 rounded-xl ring-1 transition-all duration-300 ${
+              isDarkMode 
+                ? 'bg-slate-800/50 ring-slate-600' 
+                : 'bg-sky-700/5 ring-sky-100'
+            }`}>
               <div className="shrink-0">
-                <Telescope size={55} className="text-sky-900" />
+                <Telescope size={55} className={`transition-colors duration-300 ${
+                  isDarkMode ? 'text-sky-400' : 'text-sky-900'
+                }`} />
               </div>
               <div>
-                <span className="text-sm text-sky-700 font-bold">Mission</span>
-                <p className="mt-1 text-sm text-neutral-700 leading-relaxed">
+                <span className={`text-sm font-bold transition-colors duration-300 ${
+                  isDarkMode ? 'text-sky-400' : 'text-sky-700'
+                }`}>Vision</span>
+                <p className={`mt-1 text-sm leading-relaxed transition-colors duration-300 ${
+                  isDarkMode ? 'text-slate-300' : 'text-neutral-700'
+                }`}>
                   Become a leading consultancy firm in environmental and social compliance monitoring, environmental science, and agricultural development.
                 </p>
               </div>
