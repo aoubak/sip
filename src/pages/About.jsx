@@ -138,8 +138,8 @@ export default function About() {
       `}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className={`rounded-2xl border p-6 shadow-sm
-              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+            <div className={`rounded-2xl p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 border border-slate-700 text-slate-200 '
               : 'bg-white/70 text-slate-900 border-slate-200'}}
               `}>
               <div className="flex items-center gap-3">
@@ -150,8 +150,8 @@ export default function About() {
                 To be a leading high-level institutional consultancy firm in agricultural development, environmental science, and environmental & social compliance monitoring.
               </p>
             </div>
-            <div className={`rounded-2xl border p-6 shadow-sm
-              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+            <div className={`rounded-2xl p-6 shadow-sm
+              ${isDarkMode ? 'bg-slate-800/70 border border-slate-700 text-slate-200 '
               : 'bg-white text-slate-900 border-slate-200'}}
               `}>
               <div className="flex items-center gap-3">
@@ -193,7 +193,7 @@ export default function About() {
             Our Approach
           </div>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className={`rounded-2xl border p-6 shadow-sm
+            <div className={`rounded-2xl  p-6 shadow-sm
               ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
               : 'bg-white text-slate-900 border-slate-200'}
               `}>
@@ -201,7 +201,7 @@ export default function About() {
               <p className="mt-2 text-sm leading-relaxed">We assemble expert teams for each project to ensure technical excellence, professionalism, and client-focused delivery.</p>
             </div>
             <div className={`rounded-2xl border p-6 shadow-sm
-              ${isDarkMode ? 'bg-slate-800/70 text-slate-200 border-slate-700'
+              ${isDarkMode ? 'bg-slate-800/70 border border-slate-700 text-slate-200 '
               : 'bg-white text-slate-900 border-slate-200'}
               `}>
               <div className="flex items-center gap-3"><Cpu className="h-5 w-5 text-sky-700" /><h5 className="font-semibold">Advanced Tooling</h5></div>
